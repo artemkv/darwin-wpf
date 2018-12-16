@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ListFilterParameter">
+    <xs:sequence>
+      <xs:element name="_x003C_Property_x003E_k__BackingField" nillable="true" type="xs:string" />
+      <xs:element name="_x003C_Value_x003E_k__BackingField" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ListFilterParameter" nillable="true" type="tns:ListFilterParameter" />
+  <xs:complexType name="ArrayOfListFilterParameter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ListFilterParameter" nillable="true" type="tns:ListFilterParameter" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfListFilterParameter" nillable="true" type="tns:ArrayOfListFilterParameter" />
+  <xs:complexType name="ArrayOfTreeNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TreeNode" nillable="true" type="tns:TreeNode" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTreeNode" nillable="true" type="tns:ArrayOfTreeNode" />
+  <xs:complexType name="TreeNode">
+    <xs:sequence>
+      <xs:element name="_x003C_IsLeaf_x003E_k__BackingField" type="xs:boolean" />
+      <xs:element name="_x003C_ObjectID_x003E_k__BackingField" type="ser:guid" />
+      <xs:element name="_x003C_Object_x003E_k__BackingField" nillable="true" type="xs:anyType" />
+      <xs:element name="_x003C_SubPath_x003E_k__BackingField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TreeNode" nillable="true" type="tns:TreeNode" />
+  <xs:complexType name="ObjectGroup">
+    <xs:sequence>
+      <xs:element name="_x003C_Title_x003E_k__BackingField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObjectGroup" nillable="true" type="tns:ObjectGroup" />
+</xs:schema>

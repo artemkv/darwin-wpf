@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CEB83046-624E-46EF-9A1E-7CD202C30AC0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Artemkv.Darwin.Controller</RootNamespace>
+    <AssemblyName>Artemkv.Darwin.Controller</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>..\..\external\WPFToolkit\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\ImportController.cs" />
+    <Compile Include="Areas\BasicController.cs" />
+    <Compile Include="Areas\ModelController.cs" />
+    <Compile Include="Areas\ProjectController.cs" />
+    <Compile Include="AttributeInfo.cs" />
+    <Compile Include="Cardinality.cs" />
+    <Compile Include="Commands.cs" />
+    <Compile Include="Controls\PagingControl.xaml.cs">
+      <DependentUpon>PagingControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BaseEnumInfo.cs" />
+    <Compile Include="DataSourceHelper.cs" />
+    <Compile Include="DataSources\DatabaseBaseEnumsListDataSource.cs" />
+    <Compile Include="DataSources\EntitiesNotOnDiagramListDataSource.cs" />
+    <Compile Include="Filters\DatabaseBaseEnumsFilter.cs" />
+    <Compile Include="Filters\EntitiesNotOnDiagramFilter.cs" />
+    <Compile Include="Modality.cs" />
+    <Compile Include="DataSources\ListDataSource.cs" />
+    <Compile Include="DiagramEntityInfo.cs" />
+    <Compile Include="Paging.cs" />
+    <Compile Include="PaperOrientation.cs" />
+    <Compile Include="PaperSize.cs" />
+    <Compile Include="ProjectTreeViewMenuBuilder.cs" />
+    <Compile Include="ReadOnlyDockPanel.cs" />
+    <Compile Include="RelationInfo.cs" />
+    <Compile Include="DataSources\DiagramRelationsListDataSource.cs" />
+    <Compile Include="DataSources\DiagramEntitiesListDataSource.cs" />
+    <Compile Include="DataSources\DatabaseDataTypesListDataSource.cs" />
+    <Compile Include="DataSources\EntityAttributesListDataSource.cs" />
+    <Compile Include="DataSources\DatabaseEntitiesListDataSource.cs" />
+    <Compile Include="ChartBuilder.cs" />
+    <Compile Include="EntityInfo.cs" />
+    <Compile Include="Filters\DiagramRelationsFilter.cs" />
+    <Compile Include="Filters\DiagramEntitiesFilter.cs" />
+    <Compile Include="Filters\DatabaseDataTypesFilter.cs" />
+    <Compile Include="Filters\EntityAttributesFilter.cs" />
+    <Compile Include="Filters\DatabaseEntitiesFilter.cs" />
+    <Compile Include="ProjectTreeHelper.cs" />
+    <Compile Include="DataSources\ObjectDataSource.cs" />
+    <Compile Include="IListDataSource.cs" />
+    <Compile Include="DataSources\ProjectListDataSource.cs" />
+    <Compile Include="DataSources\ProjectTreeDataSource.cs" />
+    <Compile Include="DataTypeInfo.cs" />
+    <Compile Include="IDetailsView.cs" />
+    <Compile Include="IListView.cs" />
+    <Compile Include="ITreeDataSource.cs" />
+    <Compile Include="ITreeView.cs" />
+    <Compile Include="ObjectListItem.cs" />
+    <Compile Include="ObjectTreeNode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registry.cs" />
+    <Compile Include="Service References\DarwinServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceLocator.cs" />
+    <Compile Include="SessionState.cs" />
+    <Compile Include="Views\AttributeDetailsView.xaml.cs">
+      <DependentUpon>AttributeDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseEnumValueDetailsView.xaml.cs">
+      <DependentUpon>BaseEnumValueDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseEnumDetailsView.xaml.cs">
+      <DependentUpon>BaseEnumDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiagramChartView.xaml.cs">
+      <DependentUpon>DiagramChartView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiagramEntityDetailsView.xaml.cs">
+      <DependentUpon>DiagramEntityDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiagramDetailsView.xaml.cs">
+      <DependentUpon>DiagramDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntitiesListView.xaml.cs">
+      <DependentUpon>EntitiesListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RelationItemDetailsView.xaml.cs">
+      <DependentUpon>RelationItemDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RelationDetailsView.xaml.cs">
+      <DependentUpon>RelationDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DatabaseDetailsView.xaml.cs">
+      <DependentUpon>DatabaseDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataTypeDetailsView.xaml.cs">
+      <DependentUpon>DataTypeDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityDetailsView.xaml.cs">
+      <DependentUpon>EntityDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProjectDetailsView.xaml.cs">
+      <DependentUpon>ProjectDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProjectListView.xaml.cs">
+      <DependentUpon>ProjectListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProjectTreeView.xaml.cs">
+      <DependentUpon>ProjectTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PopupWindow.xaml.cs">
+      <DependentUpon>PopupWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\01 Darwin.Common\Artemkv.Darwin.Common\Artemkv.Darwin.Common.csproj">
+      <Project>{68F9C50A-4261-4986-B371-705A5FF13175}</Project>
+      <Name>Artemkv.Darwin.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\01 Darwin.Common\Artemkv.Darwin.ERModel\Artemkv.Darwin.ERModel.csproj">
+      <Project>{E8A01D63-6C3E-445E-A2DE-0531C56A1FC1}</Project>
+      <Name>Artemkv.Darwin.ERModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Artemkv.Darwin.SqlServer\Artemkv.Darwin.SqlServer.csproj">
+      <Project>{5A9999EF-7CE4-4730-B746-53EED5028307}</Project>
+      <Name>Artemkv.Darwin.SqlServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Artemkv.Darwin.Visual\Artemkv.Darwin.Visual.csproj">
+      <Project>{03B6389E-1848-46E5-B630-3C0E700E7B73}</Project>
+      <Name>Artemkv.Darwin.Visual</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\PagingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AttributeDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BaseEnumValueDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BaseEnumDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DiagramChartView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DiagramEntityDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DiagramDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntitiesListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RelationItemDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\RelationDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DatabaseDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DataTypeDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityDetailsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ProjectDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\PopupWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\ProjectListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProjectTreeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Database.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\Artemkv.Darwin.Common.Responses.DeleteObjectResponse.datasource" />
+    <None Include="Properties\DataSources\Artemkv.Darwin.Common.Responses.GetObjectListResponse.datasource" />
+    <None Include="Properties\DataSources\Artemkv.Darwin.Common.Responses.GetObjectResponse.datasource" />
+    <None Include="Properties\DataSources\Artemkv.Darwin.Common.Responses.GetTreeNodesResponse.datasource" />
+    <None Include="Properties\DataSources\Artemkv.Darwin.Common.Responses.SaveObjectResponse.datasource" />
+    <None Include="Properties\DataSources\Artemkv.Darwin.ERModel.DTO.PersistentObjectDTO.datasource" />
+    <None Include="Properties\DataSources\Artemkv.Darwin.ERModel.PersistentObject.datasource" />
+    <None Include="Service References\DarwinServiceReference\Artemkv.Darwin.Common.DTO.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DarwinServiceReference\Artemkv.Darwin.Common.Requests.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DarwinServiceReference\Artemkv.Darwin.Common.Responses.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DarwinServiceReference\Artemkv.Darwin.Common.Validation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DarwinServiceReference\Artemkv.Darwin.Common.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DarwinServiceReference\service.wsdl" />
+    <None Include="Service References\DarwinServiceReference\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DarwinServiceReference\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\DarwinServiceReference\System.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\DarwinServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DarwinServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DarwinServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\DarwinServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Table.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Database16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Table16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Attribute16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Folder16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Project16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\RelationItem16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Relation16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\PrimaryKey16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Diagram16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Delete.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\DataType16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\BaseEnum16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\BaseEnumValue16.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

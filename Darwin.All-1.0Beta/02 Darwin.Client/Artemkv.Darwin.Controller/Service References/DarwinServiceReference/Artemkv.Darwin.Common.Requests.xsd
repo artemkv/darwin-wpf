@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common.Requests" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common.Requests" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common.DTO" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common" />
+  <xs:complexType name="GetObjectRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element name="_x003C_ObjectID_x003E_k__BackingField" type="ser:guid" />
+          <xs:element name="_x003C_ObjectType_x003E_k__BackingField" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetObjectRequest" nillable="true" type="tns:GetObjectRequest" />
+  <xs:complexType name="RequestBase">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="RequestBase" nillable="true" type="tns:RequestBase" />
+  <xs:complexType name="SaveObjectRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common.DTO" name="_x003C_Object_x003E_k__BackingField" nillable="true" type="q1:PersistentObjectDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveObjectRequest" nillable="true" type="tns:SaveObjectRequest" />
+  <xs:complexType name="GetTreeNodesRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element name="_x003C_DataSource_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_PageNumber_x003E_k__BackingField" type="xs:int" />
+          <xs:element name="_x003C_PageSize_x003E_k__BackingField" type="xs:int" />
+          <xs:element name="_x003C_ParentID_x003E_k__BackingField" type="ser:guid" />
+          <xs:element name="_x003C_Path_x003E_k__BackingField" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTreeNodesRequest" nillable="true" type="tns:GetTreeNodesRequest" />
+  <xs:complexType name="DeleteObjectRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common.DTO" name="_x003C_Object_x003E_k__BackingField" nillable="true" type="q2:PersistentObjectDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteObjectRequest" nillable="true" type="tns:DeleteObjectRequest" />
+  <xs:complexType name="GetObjectListRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RequestBase">
+        <xs:sequence>
+          <xs:element name="_x003C_DataSource_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common" name="_x003C_ListFilter_x003E_k__BackingField" nillable="true" type="q3:ArrayOfListFilterParameter" />
+          <xs:element name="_x003C_PageNumber_x003E_k__BackingField" type="xs:int" />
+          <xs:element name="_x003C_PageSize_x003E_k__BackingField" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetObjectListRequest" nillable="true" type="tns:GetObjectListRequest" />
+</xs:schema>

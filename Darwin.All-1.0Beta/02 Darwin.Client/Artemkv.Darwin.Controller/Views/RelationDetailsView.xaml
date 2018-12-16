@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="Artemkv.Darwin.Controller.Views.RelationDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="307" d:DesignWidth="692">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Resources\Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0">Relation Name:</Label>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=RelationName, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"></TextBox>
+            <Label Grid.Row="1" Grid.Column="0">Parent Entity:</Label>
+            <ComboBox x:Name="ParentEntityComboBox" Grid.Row="1" Grid.Column="1" SelectedValuePath="ID" SelectedValue="{Binding Path=PrimaryEntityID}" SelectionChanged="ParentEntityComboBox_SelectionChanged"></ComboBox>
+            <Label Grid.Row="2" Grid.Column="0">Foreign Entity:</Label>
+            <ComboBox x:Name="ForeignEntityComboBox" Grid.Row="2" Grid.Column="1" SelectedValuePath="ID" SelectedValue="{Binding Path=ForeignEntityID}"></ComboBox>
+            <Label Grid.Row="3" Grid.Column="0">Modality:</Label>
+            <ComboBox x:Name="ModalityComboBox" Grid.Row="3" Grid.Column="1" SelectedValuePath="AtLeastOne" SelectedValue="{Binding Path=AtLeastOne}"></ComboBox>
+            <Label Grid.Row="4" Grid.Column="0">Cardinality:</Label>
+            <ComboBox x:Name="CardinalityComboBox" Grid.Row="4" Grid.Column="1" SelectedValuePath="OneToOne" SelectedValue="{Binding Path=OneToOne}"></ComboBox>
+        </Grid>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Label>Relation Attributes</Label>
+            <Button x:Name="EditForeignEntityButton" Margin="5" FontSize="12" Content="Edit" Cursor="Hand" Click="EditForeignEntityButton_Click">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <TextBlock TextDecorations="Underline">
+                                <ContentPresenter />
+                        </TextBlock>
+                    </ControlTemplate>
+                </Button.Template>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Foreground" Value="Blue" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Foreground" Value="Red" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <DataGrid 
+                    ItemsSource="{Binding Path=Items}" 
+                    IsReadOnly="False"
+                    CanUserAddRows="True"
+                    CanUserDeleteRows="True"
+                    AutoGenerateColumns="False"
+                    RowBackground="White"
+                    AlternatingRowBackground="WhiteSmoke"
+                    Background="Gray">
+                    <DataGrid.Columns>
+                        <DataGridComboBoxColumn 
+                            x:Name="PrimaryAttributeColumn"
+                            Header="Primary Attribute" Width="200" 
+                            DisplayMemberPath="AttributeName"
+                            SelectedValuePath="ID"
+                            SelectedValueBinding="{Binding Path=PrimaryAttributeID, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                            ElementStyle="{StaticResource ComboBoxColumnElement}"
+                            EditingElementStyle="{StaticResource ComboBoxColumnEditingElement}">
+                        </DataGridComboBoxColumn>
+                        <DataGridComboBoxColumn 
+                            x:Name="ForeignAttributeColumn"
+                            Header="Foreign Attribute" Width="200" 
+                            DisplayMemberPath="AttributeName"
+                            SelectedValuePath="ID"
+                            SelectedValueBinding="{Binding Path=ForeignAttributeID, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                            ElementStyle="{StaticResource ComboBoxColumnElement}"
+                            EditingElementStyle="{StaticResource ComboBoxColumnEditingElement}">
+                        </DataGridComboBoxColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="PersistentObjectDTO">
+    <xs:sequence>
+      <xs:element name="_x003C_ID_x003E_k__BackingField" type="ser:guid" />
+      <xs:element name="_x003C_TS_x003E_k__BackingField" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersistentObjectDTO" nillable="true" type="tns:PersistentObjectDTO" />
+  <xs:complexType name="RelationItemDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PersistentObjectDTO">
+        <xs:sequence>
+          <xs:element name="_x003C_ForeignAttributeID_x003E_k__BackingField" type="ser:guid" />
+          <xs:element name="_x003C_ForeignAttributeName_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_ForeignAttributeRequired_x003E_k__BackingField" type="xs:boolean" />
+          <xs:element name="_x003C_ForeignEntityName_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_PrimaryAttributeID_x003E_k__BackingField" type="ser:guid" />
+          <xs:element name="_x003C_PrimaryAttributeName_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_PrimaryEntityName_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_RelationID_x003E_k__BackingField" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RelationItemDTO" nillable="true" type="tns:RelationItemDTO" />
+  <xs:complexType name="RelationDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PersistentObjectDTO">
+        <xs:sequence>
+          <xs:element name="_items" nillable="true" type="tns:ArrayOfRelationItemDTO" />
+          <xs:element name="_x003C_AtLeastOne_x003E_k__BackingField" type="xs:boolean" />
+          <xs:element name="_x003C_ForeignEntityID_x003E_k__BackingField" type="ser:guid" />
+          <xs:element name="_x003C_OneToOne_x003E_k__BackingField" type="xs:boolean" />
+          <xs:element name="_x003C_PrimaryEntityID_x003E_k__BackingField" type="ser:guid" />
+          <xs:element name="_x003C_RelationName_x003E_k__BackingField" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="RelationDTO" nillable="true" type="tns:RelationDTO" />
+  <xs:complexType name="ArrayOfRelationItemDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RelationItemDTO" nillable="true" type="tns:RelationItemDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelationItemDTO" nillable="true" type="tns:ArrayOfRelationItemDTO" />
+  <xs:complexType name="DiagramDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PersistentObjectDTO">
+        <xs:sequence>
+          <xs:element name="_entities" nillable="true" type="tns:ArrayOfDiagramEntityDTO" />
+          <xs:element name="_x003C_DatabaseID_x003E_k__BackingField" type="ser:guid" />
+          <xs:element name="_x003C_DiagramName_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_IsAdjusted_x003E_k__BackingField" type="xs:boolean" />
+          <xs:element name="_x003C_IsVertical_x003E_k__BackingField" type="xs:boolean" />
+          <xs:element name="_x003C_PaperSize_x003E_k__BackingField" type="xs:int" />
+          <xs:element name="_x003C_ShowModality_x003E_k__BackingField" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DiagramDTO" nillable="true" type="tns:DiagramDTO" />
+  <xs:complexType name="ArrayOfDiagramEntityDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DiagramEntityDTO" nillable="true" type="tns:DiagramEntityDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDiagramEntityDTO" nillable="true" type="tns:ArrayOfDiagramEntityDTO" />
+  <xs:complexType name="DiagramEntityDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PersistentObjectDTO">
+        <xs:sequence>
+          <xs:element name="_x003C_DiagramID_x003E_k__BackingField" type="ser:guid" />
+          <xs:element name="_x003C_EntityID_x003E_k__BackingField" type="ser:guid" />
+          <xs:element name="_x003C_EntityName_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_Entity_x003E_k__BackingField" nillable="true" type="tns:EntityDTO" />
+          <xs:element name="_x003C_SchemaName_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_X_x003E_k__BackingField" type="xs:int" />
+          <xs:element name="_x003C_Y_x003E_k__BackingField" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DiagramEntityDTO" nillable="true" type="tns:DiagramEntityDTO" />
+  <xs:complexType name="EntityDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PersistentObjectDTO">
+        <xs:sequence>
+          <xs:element name="_attributes" nillable="true" type="tns:ArrayOfAttributeDTO" />
+          <xs:element name="_x003C_DatabaseID_x003E_k__BackingField" type="ser:guid" />
+          <xs:element name="_x003C_EntityName_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_SchemaName_x003E_k__BackingField" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EntityDTO" nillable="true" type="tns:EntityDTO" />
+  <xs:complexType name="ArrayOfAttributeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AttributeDTO" nillable="true" type="tns:AttributeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAttributeDTO" nillable="true" type="tns:ArrayOfAttributeDTO" />
+  <xs:complexType name="AttributeDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PersistentObjectDTO">
+        <xs:sequence>
+          <xs:element name="_x003C_AttributeName_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_DataTypeID_x003E_k__BackingField" type="ser:guid" />
+          <xs:element name="_x003C_EntityID_x003E_k__BackingField" type="ser:guid" />
+          <xs:element name="_x003C_IsPrimaryKey_x003E_k__BackingField" type="xs:boolean" />
+          <xs:element name="_x003C_IsRequired_x003E_k__BackingField" type="xs:boolean" />
+          <xs:element name="_x003C_Length_x003E_k__BackingField" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AttributeDTO" nillable="true" type="tns:AttributeDTO" />
+  <xs:complexType name="ProjectDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PersistentObjectDTO">
+        <xs:sequence>
+          <xs:element name="_x003C_ProjectName_x003E_k__BackingField" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ProjectDTO" nillable="true" type="tns:ProjectDTO" />
+  <xs:complexType name="DatabaseDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PersistentObjectDTO">
+        <xs:sequence>
+          <xs:element name="_dataTypes" nillable="true" type="tns:ArrayOfDataTypeDTO" />
+          <xs:element name="_x003C_ConnectionString_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_DBName_x003E_k__BackingField" nillable="true" type="xs:string" />
+          <xs:element name="_x003C_ProjectID_x003E_k__BackingField" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DatabaseDTO" nillable="true" type="tns:DatabaseDTO" />
+  <xs:complexType name="ArrayOfDataTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataTypeDTO" nillable="true" type="tns:DataTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDataTypeDTO" nillable="true" type="tns:ArrayOfDataTypeDTO" />
+  <xs:complexType name="DataTypeDTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PersistentObjectDTO">
+        <xs:sequence>
+          <xs:element name="_x003C_DatabaseID_x003E_k__BackingField" type="ser:guid" />
+          <xs:element name="_x003C_HasLength_x003E_k__BackingField" type="xs:boolean" />
+          <xs:element name="_x003C_TypeName_x003E_k__BackingField" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataTypeDTO" nillable="true" type="tns:DataTypeDTO" />
+  <xs:complexType name="ArrayOfPersistentObjectDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PersistentObjectDTO" nillable="true" type="tns:PersistentObjectDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPersistentObjectDTO" nillable="true" type="tns:ArrayOfPersistentObjectDTO" />
+</xs:schema>

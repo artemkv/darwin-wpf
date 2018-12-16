@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="Artemkv.Darwin.Controller.Views.ProjectTreeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ui="clr-namespace:Artemkv.Darwin.Controller"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.CommandBindings>
+        <CommandBinding Command='NavigationCommands.Refresh' Executed="OnRefresh"></CommandBinding>
+        <CommandBinding Command="ui:Commands.CreateNewDatabaseCommand"></CommandBinding>
+        <CommandBinding Command="ui:Commands.CreateNewEntityCommand"></CommandBinding>
+        <CommandBinding Command="ui:Commands.CreateNewRelationCommand"></CommandBinding>
+        <CommandBinding Command="ui:Commands.CreateNewAttributeCommand"></CommandBinding>
+        <CommandBinding Command="ui:Commands.CreateNewBaseEnumCommand"></CommandBinding>
+        <CommandBinding Command="ui:Commands.CreateNewBaseEnumValueCommand"></CommandBinding>
+        <CommandBinding Command="ui:Commands.CreateNewDataTypeCommand"></CommandBinding>
+        <CommandBinding Command="ui:Commands.CreateNewDiagramCommand"></CommandBinding>
+        <CommandBinding Command="ui:Commands.AddEntitiesToDiagramCommand"></CommandBinding>
+        <CommandBinding Command="ui:Commands.DeleteObjectCommand"></CommandBinding>
+    </UserControl.CommandBindings>
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Resources\Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <ui:ProjectTreeViewMenuBuilder x:Key="ProjectTreeViewMenuBuilder"></ui:ProjectTreeViewMenuBuilder>
+            <HierarchicalDataTemplate DataType="{x:Type ui:ObjectTreeNode}" ItemsSource="{Binding Path=Children}">
+                <StackPanel Orientation="Horizontal" UseLayoutRounding="True">
+                    <StackPanel.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Command="ui:Commands.CreateNewDatabaseCommand" 
+                                      Header="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                      Visibility="{Binding Source={StaticResource ProjectTreeViewMenuBuilder}, Path=CreateNewDatabase_Visibility}">
+                                <MenuItem.Icon>
+                                    <Image Source="../Resources/Icons/Database16.ico" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="ui:Commands.CreateNewEntityCommand" 
+                                      Header="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                      Visibility="{Binding Source={StaticResource ProjectTreeViewMenuBuilder}, Path=CreateNewEntity_Visibility}">
+                                <MenuItem.Icon>
+                                    <Image Source="../Resources/Icons/Table16.ico" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="ui:Commands.CreateNewRelationCommand" 
+                                      Header="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                      Visibility="{Binding Source={StaticResource ProjectTreeViewMenuBuilder}, Path=CreateNewRelation_Visibility}">
+                                <MenuItem.Icon>
+                                    <Image Source="../Resources/Icons/Relation16.ico" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="ui:Commands.CreateNewAttributeCommand" 
+                                      Header="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                      Visibility="{Binding Source={StaticResource ProjectTreeViewMenuBuilder}, Path=CreateNewAttribute_Visibility}">
+                                <MenuItem.Icon>
+                                    <Image Source="../Resources/Icons/Attribute16.ico" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="ui:Commands.CreateNewBaseEnumCommand" 
+                                      Header="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                      Visibility="{Binding Source={StaticResource ProjectTreeViewMenuBuilder}, Path=CreateNewBaseEnum_Visibility}">
+                                <MenuItem.Icon>
+                                    <Image Source="../Resources/Icons/BaseEnum16.ico" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="ui:Commands.CreateNewBaseEnumValueCommand" 
+                                      Header="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                      Visibility="{Binding Source={StaticResource ProjectTreeViewMenuBuilder}, Path=CreateNewBaseEnumValue_Visibility}">
+                                <MenuItem.Icon>
+                                    <Image Source="../Resources/Icons/BaseEnum16.ico" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="ui:Commands.CreateNewDataTypeCommand" 
+                                      Header="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                      Visibility="{Binding Source={StaticResource ProjectTreeViewMenuBuilder}, Path=CreateNewDataType_Visibility}">
+                                <MenuItem.Icon>
+                                    <Image Source="../Resources/Icons/DataType16.ico" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="ui:Commands.CreateNewDiagramCommand" 
+                                      Header="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                      Visibility="{Binding Source={StaticResource ProjectTreeViewMenuBuilder}, Path=CreateNewDiagram_Visibility}">
+                                <MenuItem.Icon>
+                                    <Image Source="../Resources/Icons/Diagram16.ico" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Command="ui:Commands.AddEntitiesToDiagramCommand" 
+                                      Header="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                      Visibility="{Binding Source={StaticResource ProjectTreeViewMenuBuilder}, Path=AddEntitiesToDiagram_Visibility}">
+                                <MenuItem.Icon>
+                                    <Image Source="../Resources/Icons/Diagram16.ico" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <Separator Visibility="{Binding Source={StaticResource ProjectTreeViewMenuBuilder}, Path=DeleteObject_Visibility}"></Separator>
+                            <MenuItem Command="ui:Commands.DeleteObjectCommand" 
+                                      Header="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                      Visibility="{Binding Source={StaticResource ProjectTreeViewMenuBuilder}, Path=DeleteObject_Visibility}">
+                                <MenuItem.Icon>
+                                    <Image Width="16" Height="16" Source="../Resources/Icons/Delete.ico" />
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </ContextMenu>
+                    </StackPanel.ContextMenu>
+                    <Image Source="{Binding Path=IconSource}" Height="16" Width="16" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+                    <TextBlock Text="{Binding Path=Text}" FontSize="14" FontFamily="Arial" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+                </StackPanel>
+            </HierarchicalDataTemplate>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid UseLayoutRounding="True">
+        <TreeView 
+            Name="ProjectTree" 
+            Grid.Row="0" Grid.Column="0" 
+            DockPanel.Dock="Left"
+            SelectedItemChanged="ProjectTree_SelectedItemChanged"
+            TreeViewItem.Expanded="ProjectTree_Expanded">
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <EventSetter Event="TreeViewItem.PreviewMouseRightButtonDown" Handler="TreeViewItem_PreviewMouseRightButtonDown"/>
+                </Style>
+            </TreeView.ItemContainerStyle>
+        </TreeView>
+    </Grid>
+</UserControl>

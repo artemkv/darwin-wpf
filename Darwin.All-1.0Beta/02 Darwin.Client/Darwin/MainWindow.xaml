@@ -1,0 +1,196 @@
+﻿<r:RibbonWindow x:Class="Darwin.MainWindow"
+        xmlns:r="clr-namespace:Microsoft.Windows.Controls.Ribbon;assembly=RibbonControlsLibrary"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:extToolkit="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit.Extended"
+        xmlns:controller="clr-namespace:Artemkv.Darwin.Controller;assembly=Artemkv.Darwin.Controller"
+        Title="Darwin"
+        WindowStartupLocation="CenterScreen"
+        Height="600" Width="800">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="boolToVisibility" />
+    </Window.Resources>
+
+    <Window.CommandBindings>
+        <CommandBinding Command="controller:Commands.OpenProjectCommand" Executed="OpenProjectCommand_Executed"></CommandBinding>
+        <CommandBinding Command="controller:Commands.CreateNewProjectCommand" Executed="CreateNewProjectCommand_Executed"></CommandBinding>
+
+        <CommandBinding Command="controller:Commands.CreateNewDatabaseCommand" Executed="CreateNewDatabaseCommand_Executed" CanExecute="CreateNewDatabaseCommand_CanExecute"></CommandBinding>
+        <CommandBinding Command="controller:Commands.CreateNewEntityCommand" Executed="CreateNewEntityCommand_Executed" CanExecute="CreateNewEntityCommand_CanExecute"></CommandBinding>
+        <CommandBinding Command="controller:Commands.CreateNewRelationCommand" Executed="CreateNewRelationCommand_Executed" CanExecute="CreateNewRelationCommand_CanExecute"></CommandBinding>
+        <CommandBinding Command="controller:Commands.CreateNewAttributeCommand" Executed="CreateNewAttributeCommand_Executed" CanExecute="CreateNewAttributeCommand_CanExecute"></CommandBinding>
+        <CommandBinding Command="controller:Commands.CreateNewBaseEnumCommand" Executed="CreateNewBaseEnumCommand_Executed" CanExecute="CreateNewBaseEnumCommand_CanExecute"></CommandBinding>
+        <CommandBinding Command="controller:Commands.CreateNewBaseEnumValueCommand" Executed="CreateNewBaseEnumValueCommand_Executed" CanExecute="CreateNewBaseEnumValueCommand_CanExecute"></CommandBinding>
+        <CommandBinding Command="controller:Commands.CreateNewDataTypeCommand" Executed="CreateNewDataTypeCommand_Executed" CanExecute="CreateNewDataTypeCommand_CanExecute"></CommandBinding>
+
+        <CommandBinding Command="controller:Commands.CreateNewDiagramCommand" Executed="CreateNewDiagramCommand_Executed" CanExecute="CreateNewDiagramCommand_CanExecute"></CommandBinding>
+        <CommandBinding Command="controller:Commands.AddEntitiesToDiagramCommand" Executed="AddEntitiesToDiagramCommand_Executed" CanExecute="AddEntitiesToDiagramCommand_CanExecute"></CommandBinding>
+
+        <CommandBinding Command="controller:Commands.ImportObjectsFromDatabaseCommand" Executed="ImportObjectsFromDatabaseCommand_Executed" CanExecute="ImportObjectsFromDatabaseCommand_CanExecute"></CommandBinding>
+
+        <CommandBinding Command="controller:Commands.ChangeObjectCommand" Executed="ChangeObjectCommand_Executed" CanExecute="ChangeObjectCommand_CanExecute"></CommandBinding>
+        <CommandBinding Command="controller:Commands.AcceptChangesCommand" Executed="AcceptChangesCommand_Executed" CanExecute="AcceptChangesCommand_CanExecute"></CommandBinding>
+        <CommandBinding Command="controller:Commands.CancelChangesCommand" Executed="CancelChangesCommand_Executed" CanExecute="CancelChangesCommand_CanExecute"></CommandBinding>
+
+        <CommandBinding Command="controller:Commands.DeleteObjectCommand" Executed="DeleteObjectCommand_Executed" CanExecute="DeleteObjectCommand_CanExecute"></CommandBinding>
+    </Window.CommandBindings>
+    
+    <extToolkit:BusyIndicator x:Name="AppBusyIndicator" IsBusy="False">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="2" Name="MainGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="200" Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition MinWidth="200" Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <DockPanel Name="TreePanel" Grid.Row="0" Grid.Column="0" DockPanel.Dock="Left"/>
+                <GridSplitter Grid.Row="0" Grid.Column="1" Grid.RowSpan="1" Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center" ShowsPreview="False"></GridSplitter>
+                <Grid Grid.Row="0" Grid.Column="2" DockPanel.Dock="Left">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <controller:ReadOnlyDockPanel Name="DetailsPanel" Grid.Row="0" 
+                                                  IsEnabledInner="{Binding ElementName=CancelButton, Path=IsEnabled}"
+                                                  IsReadOnlyInner="{Binding ElementName=EditButton, Path=IsEnabled}"/>
+                    <StackPanel Margin="8" Height="32" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.Row="1">
+                        <Button x:Name="CancelButton" IsCancel="True" MinWidth="112" 
+                                Command="controller:Commands.CancelChangesCommand" 
+                                Content="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Mode=OneWay, Converter={StaticResource boolToVisibility}}">
+                        </Button>
+                        <Separator Width="4" Visibility="Hidden"></Separator>
+                        <Button x:Name="OKButton" MinWidth="112" 
+                                Command="controller:Commands.AcceptChangesCommand" 
+                                Content="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Mode=OneWay, Converter={StaticResource boolToVisibility}}">
+                        </Button>
+                        <Separator Width="4" Visibility="Hidden"></Separator>
+                        <Button x:Name="EditButton" MinWidth="112" 
+                                Command="controller:Commands.ChangeObjectCommand" 
+                                Content="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Mode=OneWay, Converter={StaticResource boolToVisibility}}"></Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <r:Ribbon Title="Darwin">
+                <r:RibbonTab Header="Home">
+                    <r:RibbonGroup KeyTip="P" Header="Project">
+                        <r:RibbonButton Command="controller:Commands.CreateNewProjectCommand"
+                                        Label="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                        LargeImageSource="Resources/Images/Project.ico"
+                                        ToolTip="Create a new project (Ctrl+N)"
+                                        ToolTipDescription="Create a new project.">
+                        </r:RibbonButton>
+                        <r:RibbonButton Command="controller:Commands.OpenProjectCommand" 
+                                        Label="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                        LargeImageSource="Resources/Images/OpenProject.ico"
+                                        ToolTip="Open a project (Ctrl+O)"
+                                        ToolTipDescription="Open a project.">
+                        </r:RibbonButton>
+                    </r:RibbonGroup>
+                    <r:RibbonGroup KeyTip="E" Header="Edit">
+                        <r:RibbonButton Command="controller:Commands.DeleteObjectCommand"
+                                        Label="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                        LargeImageSource="Resources/Images/Delete.ico"
+                                        ToolTip="Delete object (Ctrl+D)"
+                                        ToolTipDescription="Deletes a selected object.">
+                        </r:RibbonButton>
+                    </r:RibbonGroup>
+                    <r:RibbonGroup KeyTip="C" Header="Model">
+                        <r:RibbonButton Command="controller:Commands.CreateNewDatabaseCommand" 
+                                        Label="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                        LargeImageSource="Resources/Images/Database.ico"
+                                        ToolTip="Create a new database (Ctrl+1)"
+                                        ToolTipDescription="Creates a new database.">
+                        </r:RibbonButton>
+                        <r:RibbonButton Command="controller:Commands.CreateNewEntityCommand" 
+                                        Label="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                        LargeImageSource="Resources/Images/Table.ico"
+                                        ToolTip="Create a new entity (Ctrl+2)"
+                                        ToolTipDescription="Creates a new entity.">
+                        </r:RibbonButton>
+                        <r:RibbonButton Command="controller:Commands.CreateNewRelationCommand" 
+                                        Label="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                        LargeImageSource="Resources/Images/Relation.ico"
+                                        ToolTip="Create a new relation (Ctrl+3)"
+                                        ToolTipDescription="Creates a new relation.">
+                        </r:RibbonButton>
+                        <r:RibbonButton Command="controller:Commands.CreateNewBaseEnumCommand" 
+                                        Label="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                        LargeImageSource="Resources/Images/BaseEnum.ico"
+                                        ToolTip="Create a new enum (Ctrl+5)"
+                                        ToolTipDescription="Creates a new enum.">
+                        </r:RibbonButton>
+                        <r:RibbonButton Command="controller:Commands.CreateNewDataTypeCommand" 
+                                        Label="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                        LargeImageSource="Resources/Images/DataType.ico"
+                                        ToolTip="Create a new data type (Ctrl+7)"
+                                        ToolTipDescription="Creates a new data type.">
+                        </r:RibbonButton>
+                    </r:RibbonGroup>
+                    <r:RibbonGroup KeyTip="C" Header="Diagrams">
+                        <r:RibbonButton Command="controller:Commands.CreateNewDiagramCommand" 
+                                        Label="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                        LargeImageSource="Resources/Images/Diagram.ico"
+                                        ToolTip="Create a new diagram (Ctrl+M)"
+                                        ToolTipDescription="Creates a new diagram.">
+                        </r:RibbonButton>
+                        <r:RibbonButton Command="controller:Commands.AddEntitiesToDiagramCommand" 
+                                        Label="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                        LargeImageSource="Resources/Images/DiagramEntity.ico"
+                                        ToolTip="Add entities to the diagram (Ctrl+Y)"
+                                        ToolTipDescription="Add entities to the diagram.">
+                        </r:RibbonButton>
+                    </r:RibbonGroup>
+                    <r:RibbonGroup KeyTip="I" Header="Import">
+                        <r:RibbonButton Command="controller:Commands.ImportObjectsFromDatabaseCommand" 
+                                        Label="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}"
+                                        LargeImageSource="Resources/Images/ImportDatabaseObjects.ico"
+                                        ToolTip="Import objects (Ctrl+I)"
+                                        ToolTipDescription="Imports objects from the database.">
+                        </r:RibbonButton>
+                    </r:RibbonGroup>
+                </r:RibbonTab>
+            </r:Ribbon>
+            <GridSplitter Grid.Row="3" Grid.Column="0" Height="3" VerticalAlignment="Center" HorizontalAlignment="Stretch" ShowsPreview="False"></GridSplitter>
+            <TabControl Grid.Row="4" Margin="5">
+                <TabItem Header="Errors">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                        <StackPanel>
+                            <DataGrid 
+                            x:Name="ErrorsGrid"
+                            IsReadOnly="False"
+                            CanUserAddRows="True"
+                            CanUserDeleteRows="True"
+                            AutoGenerateColumns="False"
+                            RowBackground="White"
+                            AlternatingRowBackground="WhiteSmoke"
+                            Background="Gray">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn 
+                                    Header="Error" Width="600" 
+                                    Binding="{Binding Path=ErrorMessage}">
+                                    </DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl>
+            <StatusBar Grid.Row="5" Height="24"/>
+        </Grid>
+    </extToolkit:BusyIndicator>
+</r:RibbonWindow>

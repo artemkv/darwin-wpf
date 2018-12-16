@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common.Responses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common.Responses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common.DTO" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common" />
+  <xs:complexType name="GetObjectResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common.DTO" name="_x003C_Object_x003E_k__BackingField" nillable="true" type="q1:PersistentObjectDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetObjectResponse" nillable="true" type="tns:GetObjectResponse" />
+  <xs:complexType name="ResponseBase">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="ResponseBase" nillable="true" type="tns:ResponseBase" />
+  <xs:complexType name="GetTreeNodesResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common" name="_x003C_Nodes_x003E_k__BackingField" nillable="true" type="q2:ArrayOfTreeNode" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetTreeNodesResponse" nillable="true" type="tns:GetTreeNodesResponse" />
+  <xs:complexType name="SaveObjectResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element name="_x003C_ValidationError_x003E_k__BackingField" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SaveObjectResponse" nillable="true" type="tns:SaveObjectResponse" />
+  <xs:complexType name="DeleteObjectResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DeleteObjectResponse" nillable="true" type="tns:DeleteObjectResponse" />
+  <xs:complexType name="GetObjectListResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseBase">
+        <xs:sequence>
+          <xs:element name="_x003C_ItemsTotal_x003E_k__BackingField" type="xs:int" />
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Artemkv.Darwin.Common.DTO" name="_x003C_Items_x003E_k__BackingField" nillable="true" type="q3:ArrayOfPersistentObjectDTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="GetObjectListResponse" nillable="true" type="tns:GetObjectListResponse" />
+</xs:schema>

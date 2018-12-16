@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="Artemkv.Darwin.Controller.Views.EntityDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="307" d:DesignWidth="692">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Resources\Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0">Entity Name:</Label>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=EntityName, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"></TextBox>
+            <Label Grid.Row="1" Grid.Column="0">Schema name:</Label>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=SchemaName, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"></TextBox>
+        </Grid>
+        <Label Grid.Row="1">Attributes</Label>
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <DataGrid 
+                    ItemsSource="{Binding Path=Attributes}" 
+                    IsReadOnly="False"
+                    CanUserAddRows="True"
+                    CanUserDeleteRows="True"
+                    AutoGenerateColumns="False"
+                    RowBackground="White"
+                    AlternatingRowBackground="WhiteSmoke"
+                    Background="Gray">
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn 
+                            Header="PK" Width="40" 
+                            Binding="{Binding Path=IsPrimaryKey, UpdateSourceTrigger=PropertyChanged}"
+                            ElementStyle="{StaticResource CheckBoxColumnElement}"
+                            EditingElementStyle="{StaticResource CheckBoxColumnEditingElement}">
+                        </DataGridCheckBoxColumn>
+                        <DataGridTextColumn 
+                            Header="Name" Width="300" 
+                            Binding="{Binding Path=AttributeName, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                            ElementStyle="{StaticResource TextColumnElement}"
+                            EditingElementStyle="{StaticResource TextColumnEditingElement}">
+                        </DataGridTextColumn>
+                        <DataGridComboBoxColumn 
+                            x:Name="TypeColumn"
+                            Header="Type" Width="100" 
+                            DisplayMemberPath="TypeName"
+                            SelectedValuePath="ID"
+                            SelectedValueBinding="{Binding Path=DataTypeID, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                            ElementStyle="{StaticResource ComboBoxColumnElement}"
+                            EditingElementStyle="{StaticResource ComboBoxColumnEditingElement}">
+                        </DataGridComboBoxColumn>
+                        <DataGridTextColumn 
+                            Header="Length" Width="100" 
+                            Binding="{Binding Path=Length, NotifyOnValidationError=True}"
+                            ElementStyle="{StaticResource TextColumnElement}"
+                            EditingElementStyle="{StaticResource TextColumnEditingElement}">
+                        </DataGridTextColumn>
+                        <DataGridCheckBoxColumn 
+                            Header="Not Null" Width="100" 
+                            Binding="{Binding Path=IsRequired, UpdateSourceTrigger=PropertyChanged}"
+                            ElementStyle="{StaticResource CheckBoxColumnElement}"
+                            EditingElementStyle="{StaticResource CheckBoxColumnEditingElement}">
+                        </DataGridCheckBoxColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

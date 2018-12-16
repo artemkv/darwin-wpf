@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{68F9C50A-4261-4986-B371-705A5FF13175}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Artemkv.Darwin.Common</RootNamespace>
+    <AssemblyName>Artemkv.Darwin.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTO\BaseEnumDTO.cs" />
+    <Compile Include="DTO\BaseEnumValueDTO.cs" />
+    <Compile Include="Mapping\CalculatedPropertyAttribute.cs" />
+    <Compile Include="DTO\AttributeDTO.cs" />
+    <Compile Include="DTO\DiagramEntityDTO.cs" />
+    <Compile Include="DTO\DiagramDTO.cs" />
+    <Compile Include="DTO\RelationItemDTO.cs" />
+    <Compile Include="DTO\RelationDTO.cs" />
+    <Compile Include="DTO\DatabaseDTO.cs" />
+    <Compile Include="DTO\DataTypeDTO.cs" />
+    <Compile Include="DTO\EntityDTO.cs" />
+    <Compile Include="DTO\PersistentObjectDTO.cs" />
+    <Compile Include="DTO\ProjectDTO.cs" />
+    <Compile Include="ListFilter.cs" />
+    <Compile Include="ListFilterParameter.cs" />
+    <Compile Include="Mapping\ObjectViewPropertyAttribute.cs" />
+    <Compile Include="QueryResult.cs" />
+    <Compile Include="Requests\DeleteObjectRequest.cs" />
+    <Compile Include="Requests\IPageableRequest.cs" />
+    <Compile Include="Responses\DeleteObjectResponse.cs" />
+    <Compile Include="StaleObjectStateException.cs" />
+    <Compile Include="TreeNode.cs" />
+    <Compile Include="Mapping\ObjectCollectionAttribute.cs" />
+    <Compile Include="Mapping\ObjectCollectionDeletionBehavior.cs" />
+    <Compile Include="ObjectGroup.cs" />
+    <Compile Include="ObjectListDataSource.cs" />
+    <Compile Include="Mapping\ObjectPropertyAttribute.cs" />
+    <Compile Include="ObjectTreeDataSource.cs" />
+    <Compile Include="ObjectType.cs" />
+    <Compile Include="Mapping\ParentObjectAttribute.cs" />
+    <Compile Include="Requests\GetObjectListRequest.cs" />
+    <Compile Include="Responses\GetObjectListResponse.cs" />
+    <Compile Include="Mapping\SimplePropertyAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requests\GetObjectRequest.cs" />
+    <Compile Include="Requests\GetTreeNodesRequest.cs" />
+    <Compile Include="Requests\RequestBase.cs" />
+    <Compile Include="Requests\SaveObjectRequest.cs" />
+    <Compile Include="Responses\GetObjectResponse.cs" />
+    <Compile Include="Responses\GetTreeNodesResponse.cs" />
+    <Compile Include="Responses\ResponseBase.cs" />
+    <Compile Include="Responses\SaveObjectResponse.cs" />
+    <Compile Include="TreeNodePath.cs" />
+    <Compile Include="TreePaths\ProjectTreePath\Element.cs" />
+    <Compile Include="Validation\NotNullValidationRuleAttribute.cs" />
+    <Compile Include="Validation\ObjectValidationEventArgs.cs" />
+    <Compile Include="Validation\RegExpValidationRuleAttribute.cs" />
+    <Compile Include="Validation\ObjectPropertyValidationDetails.cs" />
+    <Compile Include="Validation\ValidationError.cs" />
+    <Compile Include="Validation\ValidationException.cs" />
+    <Compile Include="Validation\ValidationPatterns.cs" />
+    <Compile Include="Validation\ValidationRule.cs" />
+    <Compile Include="Validator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Artemkv.Darwin.ERModel\Artemkv.Darwin.ERModel.csproj">
+      <Project>{E8A01D63-6C3E-445E-A2DE-0531C56A1FC1}</Project>
+      <Name>Artemkv.Darwin.ERModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

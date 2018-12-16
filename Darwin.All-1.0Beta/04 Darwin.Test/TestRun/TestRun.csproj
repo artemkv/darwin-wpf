@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95C4D252-6288-4A13-8F25-0C5D6CDB690F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TestRun</RootNamespace>
+    <AssemblyName>TestRun</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\external\nhibernate\Required_Bins\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\02 Darwin.Client\Artemkv.Darwin.Controller\Artemkv.Darwin.Controller.csproj">
+      <Project>{CEB83046-624E-46EF-9A1E-7CD202C30AC0}</Project>
+      <Name>Artemkv.Darwin.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\02 Darwin.Client\Artemkv.Darwin.SqlServer\Artemkv.Darwin.SqlServer.csproj">
+      <Project>{5A9999EF-7CE4-4730-B746-53EED5028307}</Project>
+      <Name>Artemkv.Darwin.SqlServer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\01 Darwin.Common\Artemkv.Darwin.Common\Artemkv.Darwin.Common.csproj">
+      <Project>{68F9C50A-4261-4986-B371-705A5FF13175}</Project>
+      <Name>Artemkv.Darwin.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\01 Darwin.Common\Artemkv.Darwin.ERModel\Artemkv.Darwin.ERModel.csproj">
+      <Project>{E8A01D63-6C3E-445E-A2DE-0531C56A1FC1}</Project>
+      <Name>Artemkv.Darwin.ERModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\03 Darwin.Server\Artemkv.Darwin.Data\Artemkv.Darwin.Data.csproj">
+      <Project>{4A1222F6-26FD-4304-AB7F-BA84389E2BAC}</Project>
+      <Name>Artemkv.Darwin.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\03 Darwin.Server\Artemkv.Darwin.Server\Artemkv.Darwin.Server\Artemkv.Darwin.Server.csproj">
+      <Project>{1BE61B2B-6914-40B8-8F4F-A7BB25162FE3}</Project>
+      <Name>Artemkv.Darwin.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\03 Darwin.Server\Artemkv.Darwin.Services\Artemkv.Darwin.Services.csproj">
+      <Project>{3B403318-E96B-4871-BA4B-48FBC98FBD43}</Project>
+      <Name>Artemkv.Darwin.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Artemkv.Darwin.Test\Artemkv.Darwin.Test.csproj">
+      <Project>{9FDD0A8B-40A4-40BA-BBB6-BDBD00639814}</Project>
+      <Name>Artemkv.Darwin.Test</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

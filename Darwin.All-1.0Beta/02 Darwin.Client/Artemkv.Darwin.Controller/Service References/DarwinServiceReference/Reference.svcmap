@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b6daa5a0-14cb-4234-acc9-53e7cdc6990d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8732/Design_Time_Addresses/Artemkv.Darwin.Services/DarwinDataService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="6801be04-5618-4945-8630-61f5008126f3" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Artemkv.Darwin.Services/DarwinDataService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="6725c124-7282-41de-8747-cae259d6aed7" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Artemkv.Darwin.Services/DarwinDataService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="23214bcc-cfe5-47f7-9972-ef02fecd43a4" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Artemkv.Darwin.Services/DarwinDataService/mex" />
+    <MetadataFile FileName="Artemkv.Darwin.Common.Requests.xsd" MetadataType="Schema" ID="325810b7-1fe5-472c-998d-6e5de9e1ff42" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Artemkv.Darwin.Services/DarwinDataService/mex" />
+    <MetadataFile FileName="Artemkv.Darwin.Common.xsd" MetadataType="Schema" ID="ff40aaba-98e1-49f9-bf1e-ca8d01e75552" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Artemkv.Darwin.Services/DarwinDataService/mex" />
+    <MetadataFile FileName="Artemkv.Darwin.Common.DTO.xsd" MetadataType="Schema" ID="cf801202-338e-4a78-bf98-d72f77ee6625" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Artemkv.Darwin.Services/DarwinDataService/mex" />
+    <MetadataFile FileName="Artemkv.Darwin.Common.Responses.xsd" MetadataType="Schema" ID="2e3533ef-c698-4343-9ec7-9b8473a14011" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Artemkv.Darwin.Services/DarwinDataService/mex" />
+    <MetadataFile FileName="Artemkv.Darwin.Common.Validation.xsd" MetadataType="Schema" ID="2fe1431b-d12a-46dc-a7f8-3dd45ceb6919" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Artemkv.Darwin.Services/DarwinDataService/mex" />
+    <MetadataFile FileName="System.xsd" MetadataType="Schema" ID="a680460b-c0ac-4d3e-9a89-4483fc6c6d94" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/Artemkv.Darwin.Services/DarwinDataService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
